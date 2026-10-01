@@ -1,0 +1,19 @@
+# Initial targets. Human-owned: agents must not edit to make CI pass.
+# Calibrate once after the first baseline (M6), then freeze.
+retrieval:
+  hit_at_5_min: 0.80
+  mrr_min: 0.60
+citations:
+  validity_min: 1.00
+refusal:
+  accuracy_min: 0.80
+ragas:
+  faithfulness_min: 0.85
+  answer_relevancy_min: 0.80
+  context_precision_min: 0.70
+performance:
+  latency_p50_max_s: 3.0
+  latency_p95_max_s: 8.0
+  cost_per_request_max_usd: 0.005
+regression:
+  max_metric_drop_vs_baseline: 0.03

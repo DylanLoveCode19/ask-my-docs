@@ -1,0 +1,3 @@
+{"id": "q001", "question": "REPLACE: a question answerable from the docs", "answerable": true, "gold_docs": ["REPLACE/path/to/doc.md"], "reference_answer": "REPLACE: short expected answer written by a human", "tags": ["langfuse"]}
+{"id": "q002", "question": "REPLACE: a question about Ragas metrics", "answerable": true, "gold_docs": ["REPLACE/path/to/doc.md"], "reference_answer": "REPLACE", "tags": ["ragas"]}
+{"id": "u001", "question": "REPLACE: a plausible question the docs do NOT answer", "answerable": false, "gold_docs": [], "reference_answer": "", "tags": ["unanswerable"]}
