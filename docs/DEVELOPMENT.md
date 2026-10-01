@@ -16,8 +16,10 @@ make test
 ```
 
 `make setup` uses `uv sync --locked`; commit `uv.lock` together with dependency
-changes. These checks need no `.env`, API keys, downloaded models, Docker, or
-external services. Initial dependency installation requires package-index access.
+changes. These three Make checks need no `.env`, API keys, downloaded models,
+Docker, or external services. Also validate the Compose file with
+`docker compose config --quiet` (requires Docker Compose, but no running daemon).
+Initial dependency installation requires package-index access.
 Tests isolate configuration in a temporary directory and never call an LLM.
 
 On Windows, run the same commands with GNU Make installed. If Make is unavailable,
@@ -61,6 +63,7 @@ M0 does not alter or load it. The golden dataset is also unchanged.
 - pytest, Ruff, and mypy provide offline tests, linting, and strict type checking.
 
 Retrieval, model, tracing, and evaluation dependencies will be added when their
-milestones use them. CI runs the same three Make targets on Python 3.12 for pull
-requests, pushes to `main`, and manual workflow runs. It uses the official
+milestones use them. CI runs the same three Make targets and Docker Compose
+configuration validation on Python 3.12 for pull requests, pushes to `main`, and
+manual workflow runs. It uses the official
 [setup-uv action](https://docs.astral.sh/uv/guides/integration/github/).
