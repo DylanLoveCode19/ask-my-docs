@@ -4,21 +4,22 @@ Rules: one milestone per session. Write tests/eval checks first. Tick the box wh
 all acceptance checks pass. Do not start the next milestone without being asked.
 
 ## M0 Scaffold
-- [ ] `pyproject.toml` (uv), package skeleton per ARCHITECTURE.md, `Makefile`, ruff + mypy config
-- [ ] `docker-compose.yml` with Qdrant, `.env.example`, `config/app.yaml`, `config/thresholds.yaml`
-- [ ] GitHub Actions workflow: lint + unit tests on PR
+- [x] `pyproject.toml` (uv), package skeleton per ARCHITECTURE.md, `Makefile`, ruff + mypy config
+- [x] `docker-compose.yml` with Qdrant, `.env.example`, `config/app.yaml`, `config/thresholds.yaml`
+- [x] GitHub Actions workflow: lint + unit tests on PR
 - Acceptance: `make setup && make lint && make test` pass on a clean clone; CI is green
 
-Implementation status (2026-10-01): all M0 scaffold files and the PR workflow are
-implemented. GNU Make ran `setup`, `lint`, and `test` successfully on a clean
-source copy with a new Python 3.12 virtualenv: Ruff passed, mypy passed for 27
-source files, and all 9 offline tests passed. `docker compose config --quiet`
-also passed. See `docs/DEVELOPMENT.md` for setup and dependency rationale.
+**M0 acceptance complete (2026-10-01).** `make setup`, `make lint`, `make test`,
+and `docker compose config --quiet` passed locally and on an actual clean Git
+clone with a new Python 3.12 virtualenv. Ruff passed, mypy passed for 27 source
+files, and all 9 offline tests passed.
 
-Acceptance remains pending: this workspace has no `.git` metadata or GitHub
-remote, so an actual clean clone and green GitHub Actions run could not be
-verified. Checkboxes remain unticked until those acceptance checks pass. No M1
-implementation was started.
+Branch: `verify/m0-pr-ci`; [PR #1](https://github.com/DylanLoveCode19/ask-my-docs/pull/1)
+targets `main`. The [PR CI run](https://github.com/DylanLoveCode19/ask-my-docs/actions/runs/36874000510)
+passed all steps, including Docker Compose validation, at verification commit
+`3d06db115779ee170b509ed2c3b6f895bcef09f3`. See `docs/DEVELOPMENT.md` for setup
+and dependency rationale. M0 has no remaining acceptance blockers. M1 remains
+pending and requires a separate request.
 
 ## M1 Ingestion
 - [ ] Download/sync script for pinned Langfuse + Ragas docs; writes `data/corpus/SOURCES.md`
