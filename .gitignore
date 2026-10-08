@@ -17,3 +17,4 @@ htmlcov/
 reports/*
 !reports/.gitkeep
 !reports/baseline.json
+.tmp/
